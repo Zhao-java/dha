@@ -83,4 +83,5 @@
 
 除查询操作外所有对B数据库的操作都将流向A数据库，实现读写分离，切换数据源角色信息链路是DHAC-> nacos -> DHA-SDK, 全局数据源角色信息更新
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/2894235/1665923195338-160864c7-5ff6-40b9-9e4e-b2be02b464eb.png#clientId=u835a6740-a9cc-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=289&id=u60989be2&margin=%5Bobject%20Object%5D&name=image.png&originHeight=577&originWidth=966&originalType=binary&ratio=1&rotation=0&showTitle=false&size=49930&status=done&style=none&taskId=ua7883733-661a-4340-92fb-969d9d26abc&title=&width=483)
-
+## 未来的改进
+整个项目只是本人对于数据库容灾恢复的一种思考，由于实际选取跨地域机房成本比较高，测试过程是通过 docker 容器隔离模拟实现两地应用和数据库的运行，测试结果目前只涉及到功能层面没有问题，但是如果在实际生产环境使用，需要考虑代码安全性以及高延迟导致的业务失败场景，以及在容灾态场景下，切换数据库导致的数据不一致的数据修复工作，同时对于上层的DNS服务并未测试，只能手动模拟实际情况。但我认为只要我在这个项目中学习到新的知识就可以了，最终的结果相对于过程并没有那么重要。
