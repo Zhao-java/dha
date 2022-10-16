@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!-- 当返回行的所有列都是空时，MyBatis默认返回null -->
+        <setting name="returnInstanceForEmptyRow" value="true"/>
+        <!-- 全局地开启或关闭配置文件中的所有映射器已经配置的任何缓存。-->
+        <setting name="cacheEnabled" value="false"/>
+        <!-- MyBatis 利用本地缓存机制（Local Cache）防止循环引用（circular references）和加速重复嵌套查询。
+        默认值为 SESSION，这种情况下会缓存一个会话中执行的所有查询。
+        若设置值为 STATEMENT，本地会话仅用在语句执行上，对相同 SqlSession 的不同调用将不会共享数据 -->
+        <setting name="localCacheScope" value="STATEMENT"/>
+        <!-- 打印出运行的sql语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN 到经典 Java 属性名 aColumn 的类似映射。-->
+        <setting name="mapUnderscoreToCamelCase" value="True"/>
+        <!-- 允许 JDBC 支持自动生成主键，需要驱动支持。
+        如果设置为 true 则这个设置强制使用自动生成主键，尽管一些驱动不能支持但仍可正常工作（比如 Derby）。-->
+        <setting name="useGeneratedKeys" value="True"/>
+    </settings>
+</configuration>

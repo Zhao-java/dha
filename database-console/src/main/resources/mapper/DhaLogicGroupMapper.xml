@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.feidian.dha.console.mapper.DhaLogicGroupMapper">
+    <resultMap id="BaseResultMap" type="org.feidian.dha.console.domain.DhaLogicGroup">
+        <!--@mbg.generated-->
+        <!--@Table dha_logic_group-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="logic_group_name" jdbcType="VARCHAR" property="logicGroupName"/>
+        <result column="center_unit" jdbcType="VARCHAR" property="centerUnit"/>
+        <result column="stand_by_unit" jdbcType="VARCHAR" property="standByUnit"/>
+        <result column="center_datasource_id" jdbcType="BIGINT" property="centerDatasourceId"/>
+        <result column="stand_by_datasource_id" jdbcType="BIGINT" property="standByDatasourceId"/>
+        <result column="current_node" jdbcType="BIGINT" property="currentNode"/>
+        <result column="switch_status" jdbcType="VARCHAR" property="switchStatus"/>
+        <result column="forbid_write_time" jdbcType="TIMESTAMP" property="forbidWriteTime"/>
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, logic_group_name, center_unit, stand_by_unit, center_datasource_id, stand_by_datasource_id,
+        current_node, switch_status, forbid_write_time, gmt_create, gmt_modified
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from dha_logic_group
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from dha_logic_group
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.feidian.dha.console.domain.DhaLogicGroup"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into dha_logic_group (logic_group_name, center_unit, stand_by_unit,
+        center_datasource_id, stand_by_datasource_id,
+        current_node, switch_status, forbid_write_time,
+        gmt_create, gmt_modified)
+        values (#{logicGroupName,jdbcType=VARCHAR}, #{centerUnit,jdbcType=VARCHAR}, #{standByUnit,jdbcType=VARCHAR},
+        #{centerDatasourceId,jdbcType=BIGINT}, #{standByDatasourceId,jdbcType=BIGINT},
+        #{currentNode,jdbcType=BIGINT}, #{switchStatus,jdbcType=VARCHAR}, #{forbidWriteTime,jdbcType=TIMESTAMP},
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.feidian.dha.console.domain.DhaLogicGroup"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into dha_logic_group
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="logicGroupName != null">
+                logic_group_name,
+            </if>
+            <if test="centerUnit != null">
+                center_unit,
+            </if>
+            <if test="standByUnit != null">
+                stand_by_unit,
+            </if>
+            <if test="centerDatasourceId != null">
+                center_datasource_id,
+            </if>
+            <if test="standByDatasourceId != null">
+                stand_by_datasource_id,
+            </if>
+            <if test="currentNode != null">
+                current_node,
+            </if>
+            <if test="switchStatus != null">
+                switch_status,
+            </if>
+            <if test="forbidWriteTime != null">
+                forbid_write_time,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="logicGroupName != null">
+                #{logicGroupName,jdbcType=VARCHAR},
+            </if>
+            <if test="centerUnit != null">
+                #{centerUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="standByUnit != null">
+                #{standByUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="centerDatasourceId != null">
+                #{centerDatasourceId,jdbcType=BIGINT},
+            </if>
+            <if test="standByDatasourceId != null">
+                #{standByDatasourceId,jdbcType=BIGINT},
+            </if>
+            <if test="currentNode != null">
+                #{currentNode,jdbcType=BIGINT},
+            </if>
+            <if test="switchStatus != null">
+                #{switchStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="forbidWriteTime != null">
+                #{forbidWriteTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.feidian.dha.console.domain.DhaLogicGroup">
+        <!--@mbg.generated-->
+        update dha_logic_group
+        <set>
+            <if test="logicGroupName != null">
+                logic_group_name = #{logicGroupName,jdbcType=VARCHAR},
+            </if>
+            <if test="centerUnit != null">
+                center_unit = #{centerUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="standByUnit != null">
+                stand_by_unit = #{standByUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="centerDatasourceId != null">
+                center_datasource_id = #{centerDatasourceId,jdbcType=BIGINT},
+            </if>
+            <if test="standByDatasourceId != null">
+                stand_by_datasource_id = #{standByDatasourceId,jdbcType=BIGINT},
+            </if>
+            <if test="currentNode != null">
+                current_node = #{currentNode,jdbcType=BIGINT},
+            </if>
+            <if test="switchStatus != null">
+                switch_status = #{switchStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="forbidWriteTime != null">
+                forbid_write_time = #{forbidWriteTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.feidian.dha.console.domain.DhaLogicGroup">
+        <!--@mbg.generated-->
+        update dha_logic_group
+        set logic_group_name = #{logicGroupName,jdbcType=VARCHAR},
+        center_unit = #{centerUnit,jdbcType=VARCHAR},
+        stand_by_unit = #{standByUnit,jdbcType=VARCHAR},
+        center_datasource_id = #{centerDatasourceId,jdbcType=BIGINT},
+        stand_by_datasource_id = #{standByDatasourceId,jdbcType=BIGINT},
+        current_node = #{currentNode,jdbcType=BIGINT},
+        switch_status = #{switchStatus,jdbcType=VARCHAR},
+        forbid_write_time = #{forbidWriteTime,jdbcType=TIMESTAMP},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.feidian.dha.console.mapper.DhaDatasourceMapper">
+
+    <resultMap id="BaseResultMap" type="org.feidian.dha.console.domain.DhaDatasource">
+        <!--@mbg.generated-->
+        <!--@Table dha_datasource-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="datasource_name" jdbcType="VARCHAR" property="datasourceName"/>
+        <result column="ip" jdbcType="VARCHAR" property="ip"/>
+        <result column="port" jdbcType="INTEGER" property="port"/>
+        <result column="db_name" jdbcType="VARCHAR" property="dbName"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="privilege" jdbcType="VARCHAR" property="privilege"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, datasource_name, ip, port, db_name, username, `password`, privilege
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from dha_datasource
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from dha_datasource
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.feidian.dha.console.domain.DhaDatasource"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into dha_datasource (datasource_name, ip, port,
+        db_name, username, `password`,
+        privilege)
+        values (#{datasourceName,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{port,jdbcType=INTEGER},
+        #{dbName,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{privilege,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.feidian.dha.console.domain.DhaDatasource"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into dha_datasource
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="datasourceName != null">
+                datasource_name,
+            </if>
+            <if test="ip != null">
+                ip,
+            </if>
+            <if test="port != null">
+                port,
+            </if>
+            <if test="dbName != null">
+                db_name,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                `password`,
+            </if>
+            <if test="privilege != null">
+                privilege,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="datasourceName != null">
+                #{datasourceName,jdbcType=VARCHAR},
+            </if>
+            <if test="ip != null">
+                #{ip,jdbcType=VARCHAR},
+            </if>
+            <if test="port != null">
+                #{port,jdbcType=INTEGER},
+            </if>
+            <if test="dbName != null">
+                #{dbName,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="privilege != null">
+                #{privilege,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.feidian.dha.console.domain.DhaDatasource">
+        <!--@mbg.generated-->
+        update dha_datasource
+        <set>
+            <if test="datasourceName != null">
+                datasource_name = #{datasourceName,jdbcType=VARCHAR},
+            </if>
+            <if test="ip != null">
+                ip = #{ip,jdbcType=VARCHAR},
+            </if>
+            <if test="port != null">
+                port = #{port,jdbcType=INTEGER},
+            </if>
+            <if test="dbName != null">
+                db_name = #{dbName,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                `password` = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="privilege != null">
+                privilege = #{privilege,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.feidian.dha.console.domain.DhaDatasource">
+        <!--@mbg.generated-->
+        update dha_datasource
+        set datasource_name = #{datasourceName,jdbcType=VARCHAR},
+        ip = #{ip,jdbcType=VARCHAR},
+        port = #{port,jdbcType=INTEGER},
+        db_name = #{dbName,jdbcType=VARCHAR},
+        username = #{username,jdbcType=VARCHAR},
+        `password` = #{password,jdbcType=VARCHAR},
+        privilege = #{privilege,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select *
+        from dha_datasource
+    </select>
+
+    <select id="selectByDataSourceName" resultMap="BaseResultMap">
+        select *
+        from dha_datasource
+        where datasource_name = #{datasourceName,jdbcType=VARCHAR}
+    </select>
+</mapper>

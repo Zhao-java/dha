@@ -1,0 +1,41 @@
+server:
+  port: 9991
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dha?characterEncoding=UTF-8
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+
+nacos:
+  config:
+    remote-first: true
+    server-addr: 127.0.0.1:8848
+
+
+dha:
+  config:
+    enable: true
+    app-name: test
+    master:
+#      jdbc-url: localhost:3304
+      jdbcUrl: jdbc:mysql://localhost:3304/DHA?characterEncoding=UTF-8
+      user-name: root
+      password: 123456
+      region: MASTER
+    standby:
+#      jdbc-url: localhost:3305
+      jdbcUrl: jdbc:mysql://localhost:3305/dha?characterEncoding=UTF-8
+      user-name: root
+      password: 123456
+      region: STAND_BY
+    current-region: STAND_BY
