@@ -1,4 +1,5 @@
 ## 简介
+https://www.yuque.com/docs/share/cab5a749-bd56-4ab3-9e1f-e8b08daa639b?# 《DHA数据库Starter》
 
 本文章是介绍一种处理在分布式下主数据库（M）挡掉如何快速让从数据库（S）替换为主数据库的一种Spring Starter实现。
 文章的背景是主数据库与从数据库分别部署在A、B两地，在异地多读的基础上提出的一种异地多读的思想，架构图如下：
