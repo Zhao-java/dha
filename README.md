@@ -66,7 +66,7 @@ public static DataSourceRoleEnum getThreadLocalDataSourceRole() {
 }
 ```
 
-### 数据库Cnnal同步
+### 数据库Canal同步
 
 ```java
 public void run() {
