@@ -18,13 +18,6 @@
     <description>Spring Boot Support for DHA</description>
 
 
-    <contributors>
-        <contributor>
-            <name>yin chao</name>
-            <email>yinchao.mail@foxmail.com</email>
-        </contributor>
-    </contributors>
-
 
     <properties>
         <java.version>1.8</java.version>
